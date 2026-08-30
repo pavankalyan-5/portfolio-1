@@ -1,40 +1,65 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
 import "./globals.css";
-import { ThemeProvider } from "./provider";
+import { profile } from "@/lib/content";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+/**
+ * Vercel injects VERCEL_PROJECT_PRODUCTION_URL on every deployment, so preview
+ * and production both resolve absolute metadata URLs without a hardcoded domain.
+ * Set NEXT_PUBLIC_SITE_URL once a custom domain is attached.
+ */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 export const metadata: Metadata = {
-  title: "Pavan's Portfolio",
-  description: "Pavan's Portfolio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${profile.name} — ${profile.role}`,
+    template: `%s — Pavan Kalyan`,
+  },
+  description: profile.intro,
+  openGraph: {
+    title: `${profile.name} — ${profile.role}`,
+    description: profile.intro,
+    type: "profile",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="icon"
-          href="/ProPic.jpeg"
-          sizes="any"
-          className="rounded-lg"
-        />
-      </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body className="font-sans text-[15px] leading-[1.65] antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-signal focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-[0.16em] focus:text-void"
         >
-          {children}
-        </ThemeProvider>
+          Skip to content
+        </a>
+        <Header />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -1,67 +1,101 @@
-import { FaLocationArrow } from "react-icons/fa6";
+import Image from "next/image";
 
-import MagicButton from "./MagicButton";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import { profile } from "@/lib/content";
+import SystemDiagram from "@/components/SystemDiagram";
+import ResumeButton from "@/components/ResumeButton";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <div className="pb-20 pt-36">
-      {/**
-       *  UI: Spotlights
-       *  Link: https://ui.aceternity.com/components/spotlight
-       */}
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
-        />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
-      </div>
-
-      {/**
-       *  UI: grid
-       *  change bg color to bg-black-100 and reduce grid color from
-       *  0.2 to 0.03
-       */}
-      <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        {/* Radial gradient for the container to give a faded look */}
-        <div
-          // chnage the bg to bg-black-100, so it matches the bg color and will blend in
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
-
-      <div className="flex justify-center relative my-20 z-10">
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <TextGenerateEffect
-            words="Converting words into codes!"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-          />
-
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Pavan, a Full Stack Developer based in India.
+    <section className="shell pt-12 sm:pt-16 lg:pt-[92px]" id="top">
+      <div className="grid items-start gap-12 lg:grid-cols-[1fr_320px]">
+        <div>
+          <p className="tag animate-rise">
+            {profile.role} · {profile.company}
           </p>
 
-          <a href="#about">
-            <MagicButton
-              title="About me"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-};
+          <h1
+            className="mt-5 max-w-[17ch] animate-rise font-mono text-[clamp(30px,5.4vw,62px)] font-medium leading-[1.02] tracking-[-0.05em] [text-wrap:balance]"
+            style={{ animationDelay: "70ms" }}
+          >
+            {profile.headline.lead}
+            <em className="not-italic text-signal">
+              {profile.headline.accent}
+            </em>
+            {profile.headline.tail}
+          </h1>
 
-export default Hero;
+          <p
+            className="mt-6 max-w-[60ch] animate-rise text-base text-dim"
+            style={{ animationDelay: "140ms" }}
+          >
+            {profile.intro}
+          </p>
+
+          <div
+            className="mt-7 flex animate-rise flex-wrap gap-x-7 gap-y-2.5 font-mono text-xs text-faint"
+            style={{ animationDelay: "200ms" }}
+          >
+            <span className="inline-flex items-center gap-2">
+              <span
+                aria-hidden
+                className="h-1.5 w-1.5 rounded-full bg-signal shadow-[0_0_8px_var(--signal)]"
+              />
+              {profile.availableNote}
+            </span>
+            <span>
+              based in <b className="font-medium text-text">Srikakulam, AP</b>
+            </span>
+            <span>
+              prev. <b className="font-medium text-text">EagleView</b> ·{" "}
+              <b className="font-medium text-text">ValueLabs</b>
+            </span>
+            <span>
+              <b className="font-medium text-text">Champion of Excellence</b>,
+              Prezent 2025
+            </span>
+          </div>
+
+          <div
+            className="mt-7 flex animate-rise flex-wrap items-center gap-3"
+            style={{ animationDelay: "260ms" }}
+          >
+            <ResumeButton />
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2.5 border border-line-hi px-5 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em] transition-colors hover:border-signal hover:text-signal"
+            >
+              Get in touch
+            </a>
+          </div>
+        </div>
+
+        <figure className="ml-auto hidden w-full max-w-[300px] lg:block">
+          <div className="relative aspect-[5/6]">
+            <Image
+              src={profile.portraitHero}
+              alt={`Portrait of ${profile.name}.`}
+              fill
+              priority
+              sizes="300px"
+              className="animate-morph object-cover [object-position:50%_16%]"
+            />
+            <span
+              aria-hidden
+              className="absolute -inset-0.5 animate-morph border border-signal/50"
+            />
+            <span
+              aria-hidden
+              className="absolute -inset-[15px] animate-morph border border-signal/[0.15] [animation-delay:-6s]"
+            />
+            <span
+              aria-hidden
+              className="absolute -inset-[29px] animate-morph border border-dashed border-signal/20 [animation-delay:-13s]"
+            />
+          </div>
+        </figure>
+      </div>
+
+      <SystemDiagram />
+    </section>
+  );
+}

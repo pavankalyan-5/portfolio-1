@@ -1,52 +1,38 @@
-import { FaLocationArrow } from "react-icons/fa6";
+import { education, profile, socials } from "@/lib/content";
 
-import { socialMedia } from "@/data";
-import MagicButton from "./MagicButton";
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="w-full pt-20 pb-10" id="contact">
-      {/* background grid */}
-      <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <img
-          src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50 "
-        />
-      </div>
+    <footer className="border-t border-line">
+      <div className="shell flex flex-wrap items-center justify-between gap-x-7 gap-y-4 py-6">
+        <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+          © {new Date().getFullYear()} {profile.name}
+        </span>
 
-      <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
-        </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
-        </p>
-        <a href="mailto:pavan.g2001@gmail.com">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
-      </div>
-      <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <div className="flex items-center md:gap-3 gap-6">
-          {socialMedia.map((info) => (
-            <div
-              key={info.id}
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
-              onClick={() => window.open(info.link, "_blank")}
+        <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+          {education.degree} · {education.years}
+        </span>
+
+        <div className="flex gap-7">
+          {socials.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-signal"
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
+              {social.name}
+            </a>
           ))}
+          <a
+            href={profile.resumeUrl}
+            download
+            className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint transition-colors hover:text-signal"
+          >
+            Résumé
+          </a>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
