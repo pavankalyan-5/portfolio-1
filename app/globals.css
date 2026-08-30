@@ -117,6 +117,56 @@
   }
 }
 
+/* Print: the résumé is the only page anyone prints. Drop the site chrome and
+   the dark ground so it comes out as a clean black-on-white document. */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+
+  /* The résumé's tinted metrics strip is information, not decoration, so it
+     has to survive printing rather than drop to white. */
+  .resume-root,
+  .resume-root * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body > header,
+  body > footer {
+    display: none !important;
+  }
+
+  /* `color-scheme: dark` makes the UA paint the page canvas dark, and the
+     canvas is precisely the @page margin area — which printed as a black
+     border around the sheet. Reset it for print, not just the backgrounds. */
+  html {
+    color-scheme: light !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    color: #111 !important;
+  }
+
+  /* A4 at 12mm margins leaves 186mm ≈ 703px of printable width. Any fixed
+     width above that gets centred and clipped on both edges, so the sheet
+     must fill the page box exactly rather than carry a max-width. */
+  .resume-sheet {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

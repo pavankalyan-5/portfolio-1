@@ -42,7 +42,7 @@ export default function Home() {
         id="experience"
         node="api-gateway"
         label="experience"
-        title="Six years of owning what happens after the request lands."
+        title="Four years of owning what happens after the request lands."
       >
         <ExperienceTimeline />
       </Section>

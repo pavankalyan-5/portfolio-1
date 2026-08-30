@@ -16,11 +16,11 @@ export const profile = {
     tail: " when they're wrong.",
   },
   intro:
-    "Six years across Python, Node.js, React and Vue, on top of Kubernetes and AWS. Lead engineer on Prezent Vivo, an AI-native platform for life sciences communications, where I own template accuracy — the difference between a deck a biopharma team can send and one they can't. ACM ICPC Regionalist in 2020 and 2021, which is a long way of saying I reach for a better algorithm before I reach for another server.",
+    "Four years across Python, Node.js, React and Vue, on top of Kubernetes and AWS. Lead engineer on Prezent Vivo, an AI-native platform for life sciences communications, where I own template accuracy — the difference between a deck a biopharma team can send and one they can't. ACM ICPC Regionalist in 2020 and 2021, which is a long way of saying I reach for a better algorithm before I reach for another server.",
   email: "pavan.g2001@gmail.com",
   phone: "+91 99891 41258",
   resumeUrl: "/pavan-kalyan-resume.pdf",
-  resumeNote: "PDF · 2 pages",
+  resumeNote: "PDF · 1 page",
   portrait: "/portrait.jpg",
   portraitHero: "/portrait-hero.jpg",
 };
@@ -73,7 +73,7 @@ export const systemNodes: SystemNode[] = [
     label: "api-gateway",
     meta: "Python · Node.js",
     detail:
-      "Six years of routing, auth, rate limiting and contract design — from Spring Boot APIs at ValueLabs to leading backend platform work at Prezent.",
+      "Four years of routing, auth, rate limiting and contract design — from Spring Boot APIs at ValueLabs to leading backend platform work at Prezent.",
     href: "#experience",
     x: 252,
     y: 240,
@@ -175,21 +175,61 @@ export type SystemEdge = { id: string; from: string; to: string; d: string };
 
 export const systemEdges: SystemEdge[] = [
   { id: "e1", from: "client", to: "gateway", d: "M188,282 H252" },
-  { id: "e2", from: "gateway", to: "vivo", d: "M420,282 C462,282 458,86 500,86" },
-  { id: "e3", from: "gateway", to: "template", d: "M420,282 C462,282 458,184 500,184" },
+  {
+    id: "e2",
+    from: "gateway",
+    to: "vivo",
+    d: "M420,282 C462,282 458,86 500,86",
+  },
+  {
+    id: "e3",
+    from: "gateway",
+    to: "template",
+    d: "M420,282 C462,282 458,184 500,184",
+  },
   { id: "e4", from: "gateway", to: "reliability", d: "M420,282 H500" },
-  { id: "e5", from: "gateway", to: "algo", d: "M420,282 C462,282 458,380 500,380" },
-  { id: "e6", from: "gateway", to: "demo", d: "M420,282 C462,282 458,478 500,478" },
+  {
+    id: "e5",
+    from: "gateway",
+    to: "algo",
+    d: "M420,282 C462,282 458,380 500,380",
+  },
+  {
+    id: "e6",
+    from: "gateway",
+    to: "demo",
+    d: "M420,282 C462,282 458,478 500,478",
+  },
   { id: "e7", from: "vivo", to: "store", d: "M690,86 C738,86 728,192 776,192" },
-  { id: "e8", from: "template", to: "store", d: "M690,184 C738,184 728,192 776,192" },
-  { id: "e9", from: "reliability", to: "platform", d: "M690,282 C738,282 728,348 776,348" },
-  { id: "e10", from: "algo", to: "platform", d: "M690,380 C738,380 728,348 776,348" },
-  { id: "e11", from: "demo", to: "platform", d: "M690,478 C738,478 728,348 776,348" },
+  {
+    id: "e8",
+    from: "template",
+    to: "store",
+    d: "M690,184 C738,184 728,192 776,192",
+  },
+  {
+    id: "e9",
+    from: "reliability",
+    to: "platform",
+    d: "M690,282 C738,282 728,348 776,348",
+  },
+  {
+    id: "e10",
+    from: "algo",
+    to: "platform",
+    d: "M690,380 C738,380 728,348 776,348",
+  },
+  {
+    id: "e11",
+    from: "demo",
+    to: "platform",
+    d: "M690,478 C738,478 728,348 776,348",
+  },
 ];
 
 export const systemDefaultReadout = {
   id: "the whole thing",
-  meta: "9 nodes · 6 years · 3 measured wins",
+  meta: "9 nodes · 4 years · 3 measured wins",
   body: "Every box is something I've actually owned in production. Hover one to read what I did there — or scroll, and the sections arrive in the same order the requests do.",
 };
 
@@ -231,7 +271,8 @@ export const impact = [
     node: "demo-ui",
     value: "+20%",
     label: "sales",
-    detail: "A fully demoable ReactJS interface the team could actually sell from.",
+    detail:
+      "A fully demoable ReactJS interface the team could actually sell from.",
     where: "EagleView",
   },
 ];
@@ -268,7 +309,9 @@ export const experience: Experience[] = [
     end: "Jan 2026",
     period: "1 yr 1 mo",
     location: "Chennai, Tamil Nadu",
-    highlights: ["Built and shipped scalable microservices, design through production."],
+    highlights: [
+      "Built and shipped scalable microservices, design through production.",
+    ],
   },
   {
     company: "EagleView",
@@ -308,7 +351,9 @@ export const experience: Experience[] = [
     start: "Sep 2021",
     end: "Feb 2022",
     period: "6 mo",
-    highlights: ["Authored data structures and algorithms material, including two published articles."],
+    highlights: [
+      "Authored data structures and algorithms material, including two published articles.",
+    ],
   },
 ];
 
@@ -399,7 +444,7 @@ export const blogs: Blog[] = [
     tags: ["Heaps", "Number theory", "Greedy"],
     url: "https://www.geeksforgeeks.org/dsa/minimize-range-of-the-array/",
     summary:
-      "You may replace any element with one of its divisors greater than 1, as many times as you like. Make the gap between the largest and smallest element as small as possible.",
+    "Lead Software Engineer with four years building backend systems that carry production traffic. Lead engineer on Prezent Vivo, an AI-native platform for life sciences communications, where I own the accuracy of template conversion. Took production reliability at Prezent to effectively zero failures. ACM ICPC Regionalist and LeetCode Knight — I fix the algorithm before adding infrastructure.",
     statement:
       "Given an array A of size N. In one operation, you can select any number from the array and reduce it to a divisor greater than 1. You need to find the minimum range of the array by doing any number of operations on the array.",
     examples: [
@@ -432,7 +477,8 @@ export const blogs: Blog[] = [
   },
   {
     slug: "maximum-value-triplet-expression",
-    title: "Maximum value of expression (arr[i] + arr[j] × arr[k]) formed from a valid Triplet",
+    title:
+      "Maximum value of expression (arr[i] + arr[j] × arr[k]) formed from a valid Triplet",
     where: "GeeksforGeeks · DSA",
     tags: ["Arrays", "Prefix/suffix", "Ordered set"],
     url: "https://www.geeksforgeeks.org/dsa/maximum-value-of-expression-arri-arrj-arrk-formed-from-a-valid-triplet/",
@@ -487,7 +533,8 @@ export const codingProfiles: CodingProfile[] = [
     platform: "LeetCode",
     handle: "Pavan_Kalyan_05",
     title: "Knight",
-    detail: "Contest rating 1987 across 38 rated contests — top 2.81% of participants.",
+    detail:
+      "Contest rating 1987 across 38 rated contests — top 2.81% of participants.",
     url: "https://leetcode.com/u/Pavan_Kalyan_05/",
     stats: [
       { value: "1,077", key: "solved" },
@@ -515,7 +562,8 @@ export const codingProfiles: CodingProfile[] = [
     platform: "GeeksforGeeks",
     handle: "pavang2001",
     title: "Author",
-    detail: "Two published DSA articles, both below — plus the practice archive behind them.",
+    detail:
+      "Two published DSA articles, both below — plus the practice archive behind them.",
     url: "https://www.geeksforgeeks.org/user/pavang2001/",
   },
   {
@@ -565,6 +613,62 @@ export const awards = {
   ],
 };
 
+/* ------------------------------------------------------------------ *
+ * Résumé. Rendered at /resume and printed to public/pavan-kalyan-resume.pdf.
+ * Experience, education, certifications and profiles are reused from above,
+ * so the résumé can never drift from the site.
+ * ------------------------------------------------------------------ */
+
+export const resume = {
+  summary:
+    "Lead Software Engineer with four years building backend systems that carry production traffic. Currently lead engineer on Prezent Vivo, an AI-native platform for life sciences communications, where I own the accuracy of template conversion — keeping every converted deck brand-aligned for enterprise customers. Took ownership of production reliability at Prezent and drove the failure rate to effectively zero. ACM ICPC Regionalist (2020, 2021) and LeetCode Knight, which shows up as a habit of fixing the algorithm before adding infrastructure.",
+  skills: [
+    {
+      group: "Languages",
+      items: ["Python", "JavaScript", "TypeScript", "Go", "Java"],
+    },
+    {
+      group: "Backend",
+      items: [
+        "Node.js",
+        "NestJS",
+        "Express",
+        "Spring Boot",
+        "REST APIs",
+        "Microservices",
+      ],
+    },
+    {
+      group: "Frontend",
+      items: ["React", "Vue.js", "Next.js", "Tailwind CSS"],
+    },
+    {
+      group: "Data",
+      items: ["MongoDB", "DynamoDB", "PostgreSQL", "Redis", "S3"],
+    },
+    {
+      group: "Platform",
+      items: ["Kubernetes", "Docker", "AWS", "CI/CD", "Observability"],
+    },
+  ],
+  links: [
+    { mark: "GH", label: "GitHub", text: "pavankalyan-5", url: "https://github.com/pavankalyan-5" },
+    { mark: "in", label: "LinkedIn", text: "pavankalyan05", url: "https://www.linkedin.com/in/pavankalyan05/" },
+    { mark: "LC", label: "LeetCode", text: "Pavan_Kalyan_05", url: "https://leetcode.com/u/Pavan_Kalyan_05/" },
+    { mark: "CF", label: "Codeforces", text: "pavan_kalyan_01", url: "https://codeforces.com/profile/pavan_kalyan_01" },
+    { mark: "GfG", label: "GeeksforGeeks", text: "pavang2001", url: "https://www.geeksforgeeks.org/user/pavang2001/" },
+  ],
+  awardLines: [
+    "Champion of Excellence — Prezent company-wide annual award, 2025.",
+    "Value Champion — Prezent, Mar 2026 and Jul 2025, signed by the Founder & CEO.",
+  ],
+  competitive: [
+    "LeetCode Knight — rating 1987, top 2.81%, 1,077 solved.",
+    "Codeforces — peak 1407, reached as Specialist.",
+    "ACM ICPC Regionalist — 2020 and 2021.",
+  ],
+};
+
 export const education = {
   school: "Anil Neerukonda Institute of Technology & Sciences",
   degree: "B.Tech, Computer Science",
@@ -587,7 +691,11 @@ export const navItems = [
 /** Full section list, shown in the Index panel. */
 export const indexItems = [
   { name: "Building now", node: "vivo · template-engine", href: "/#now" },
-  { name: "Measured impact", node: "reliability · algo · demo-ui", href: "/#impact" },
+  {
+    name: "Measured impact",
+    node: "reliability · algo · demo-ui",
+    href: "/#impact",
+  },
   { name: "Selected work", node: "client", href: "/#work" },
   { name: "Experience", node: "api-gateway", href: "/#experience" },
   { name: "Coding profiles", node: "algo-service", href: "/#profiles" },
